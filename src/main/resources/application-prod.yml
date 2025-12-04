@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8080
 
 spring:
   security:
@@ -12,7 +12,7 @@ spring:
               scope:
                 - email
                 - profile
-              redirect-uri: https://easycart.up.railway.app/oauth2/callback/google
+              redirect-uri: https://easycart-api.up.railway.app/oauth2/callback/google
               authorization-grant-type: authorization_code
               client-name: Google
   ai:
@@ -89,14 +89,14 @@ file:
   server-path: D:/upload-files/ || /home/henty/upload-files/
   client-path: /api/wb/v1/image
   temp-path: ${file.server-path}/temp_qr
-  base-url: https://easycart.up.railway.app${file.client-path}
-  base-image-url: https://easycart.up.railway.app
+  base-url: https://easycart-api.up.railway.app${file.client-path}
+  base-image-url: https://easycart-api.up.railway.app
 
 
 # OAuth2 Configuration
 app:
   oauth2:
-    authorized-redirect-url: https://easycart.up.vercel.app/oauth2/redirect
+    authorized-redirect-url: https://easycart-api.up.vercel.app/oauth2/redirect
 
 springdoc:
   swagger-ui:
