@@ -64,7 +64,7 @@ password:
     key: mytestkeyasdddds
 
 # Application URLs
-web-url: http://localhost:3333
+web-url: https://easycart-gules.vercel.app/
 
 # JWT Configuration
 jwt:
