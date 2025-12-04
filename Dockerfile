@@ -21,8 +21,9 @@ COPY . .
 # Make sure gradlew has execute permissions
 RUN chmod +x ./gradlew
 
-# Build the project
-RUN ./gradlew build
+# Build the project (skip tests since database is not available during build)
+RUN ./gradlew build -x test
 
 # Set the default command to run the application
-CMD ["./gradlew", "bootRun"]
+# Note: Railway will use the startCommand from railway.toml, but this serves as a fallback
+CMD ["java", "-jar", "build/libs/monkey_dev-0.0.1-SNAPSHOT.jar"]
