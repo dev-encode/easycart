@@ -39,8 +39,9 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             HttpServletRequest request = ((ServletServerHttpRequest) serverHttpRequest).getServletRequest();
             HttpServletResponse response = ((ServletServerHttpResponse) serverHttpResponse).getServletResponse();
 
-            // Log responses for all API endpoints
-            if (request.getRequestURI().startsWith("/api/")) {
+            // Log responses for all API endpoints (exclude actuator endpoints)
+            String requestURI = request.getRequestURI();
+            if (requestURI != null && requestURI.startsWith("/api/") && !requestURI.startsWith("/actuator")) {
                 monkeyDevLoggingService.logResponse(request, response, body);
             }
 

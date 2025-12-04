@@ -38,10 +38,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
@@ -78,11 +78,15 @@ logging:
   # file:
   #   name: planpro-app.log
   level:
-    root: info
-    org.hibernate: info
-    org.hibernate.SQL: debug
-    org.springframework.jdbc.core: trace
-    org.hibernate.orm.jdbc.bind: trace
+    root: warn
+    com.dev.monkey_dev: info
+    org.springframework.web: warn
+    org.springframework.security: warn
+    org.hibernate: warn
+    org.hibernate.SQL: warn
+    org.springframework.jdbc.core: warn
+    org.hibernate.orm.jdbc.bind: warn
+    org.springframework.web.servlet.handler.HandlerMappingIntrospector: warn
 
 # File Storage Configuration
 file:

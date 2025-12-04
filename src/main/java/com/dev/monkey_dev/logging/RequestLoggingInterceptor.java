@@ -20,6 +20,12 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         try {
+            // Skip logging for actuator endpoints and health checks
+            String requestURI = request.getRequestURI();
+            if (requestURI != null && (requestURI.startsWith("/actuator") || requestURI.equals("/health"))) {
+                return true;
+            }
+
             // Use ContentCachingRequestWrapper to avoid getReader() issues
             ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(request);
 
