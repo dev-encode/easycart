@@ -73,6 +73,18 @@ jwt:
   secret: mySecretKey
   expirationMs: 86400000 # 24 hours in milliseconds
 
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: when-authorized
+      probes:
+        enabled: true
+
 # Logging Configuration
 logging:
   # file:
